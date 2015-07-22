@@ -1,0 +1,15 @@
+<table class = "table">
+	<thead>
+		<th>Indices</th>
+	</thead>
+	<tbody>
+	<% @indices.keys.each do |index| %>
+	<tr>
+		<td>
+		<%= link_to index, index_path(@indices[index][:socialrank_id]),
+		class: "btn btn-primary" %>
+		</td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>

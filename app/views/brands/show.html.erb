@@ -1,0 +1,20 @@
+<%= link_to "<< Back to Index", index_path(params[:index_id]), class: "btn btn-default" %>
+
+<%= link_to "<< Home", indices_path, class: "btn btn-primary" %>
+
+<table id="myTable" class = "table tablesorter">
+	<thead>
+		<th>Date</th>
+		<th>Total Engagement</th>
+		<th>From Followers</th>
+	</thead>
+	<tbody>
+	<% @engagements.each do |array| %>
+		<tr>
+			<td><%= array[0] %></th>
+			<td><%= number_with_delimiter(array[1][:total])%></td>
+			<td><%= number_with_delimiter(array[1][:fromFollowers])%></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,20 @@
+<h3><%= Index.find(params[:index_id]).name %> Index | <%= @brand %></h3>
+
+<%= link_to "<< Return to overview", indices_path, class: "btn btn-default" %>
+
+<table class = "table">
+<thead>
+	<th>Date</th>
+	<th>Total Engagement</th>
+	<th>From Followers</th>
+</thead>
+<tbody>
+<% @brands.each do |brand| %>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+<% end %>
+</tbody>
+</table>

@@ -1,0 +1,22 @@
+<%= link_to "<< Return to Home", indices_path, class: "btn btn-default" %>
+
+<table id="myTable" class = "table tablesorter">
+	<thead>
+		<th>Brand</th>
+		<th>Total Engagement</th>
+		<th>From Followers</th>
+		<th>% from Followers</th>
+	</thead>
+	<tbody>
+	<% @engagements.each do |array| %>
+		<tr>
+			<th><%= link_to array[0], index_brand_path(:index_id => params[:id], :id => array[0])%></th>
+			<td><%= number_with_delimiter(array[1][:total])%></td>
+			<td><%= number_with_delimiter(array[1][:fromFollowers])%></td>
+			<td><%= number_with_delimiter(
+					number_to_percentage(array[1][:fromFollowers]/array[1][:total]*100)
+					)%></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
