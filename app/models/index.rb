@@ -4,13 +4,6 @@ class Index < ActiveRecord::Base
 	BASE_URI = ENV["base_uri"]
 	AUTH_KEY = ENV["auth_key"]
 
-	# the SocialRank Index API functions as follows:
-	#
-	# GET request gives information on how to access a particular Index's data
-	#
-	# POST request takes what we learned from GET request and pulls that particular
-	# Index's 30-day data
-
 	# this parses my GET request so I know which indices I'm looking for
 	def self.get_data
 		response = get_request
@@ -31,7 +24,6 @@ class Index < ActiveRecord::Base
 		indices
 	end
 
-	# POST request for the index with a particular ID.
 	# Grabs specifically all 30day engagement data for all brands in index
 	def self.get_engagement(socialrank_id)
 		response = post_request(socialrank_id)
@@ -45,7 +37,6 @@ class Index < ActiveRecord::Base
 		engagement.sort_by{|brand, stats| stats[:total]}.reverse
 	end
 
-	# POST request for a specific BRAND within a specific index.
 	# Grabs engagement data from each previous 30 days
 	def self.daily_engagement(socialrank_id, brand_id)
 		response = post_request(socialrank_id)
